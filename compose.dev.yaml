@@ -5,10 +5,6 @@ x-baseService: &baseService
     timeout: 2s
     retries: 100
 
-# secrets:
-#   my_secret:
-#     file: ./my_secret.txt
-
 services:
   dev-gateway:
     <<: *baseService
@@ -27,7 +23,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d ${DB_HOST} -U ${DB_USER}"]
     volumes:
-      - ./persist/sql-db:/var/lib/postgresql/data
+      - ./persist/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_DATABASE}
@@ -58,6 +54,8 @@ services:
       DB_DATABASE: ${DB_DATABASE}
       DB_USER: ${DB_USER}
       DB_HOST: ${DB_HOST}
+      JWT_SECRET: ${JWT_SECRET}
+      COOKIE_TTL: ${COOKIE_TTL}
 
   dev-frontend:
     <<: *baseService

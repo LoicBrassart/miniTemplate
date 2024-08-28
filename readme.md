@@ -33,7 +33,7 @@
   - Default commit message: Pull request title
 - [ ] Allow rebase merging 
 - [ ] Allow auto-merge 
-- [x] Automatically delete head branches
+- [ ] Automatically delete head branches
 
 #### Collaborators
 - Inviter les collaborateurs

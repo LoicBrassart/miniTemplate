@@ -1,0 +1,10 @@
+FROM node:lts-alpine
+WORKDIR /app
+COPY *.json .
+COPY *.html .
+COPY *.ts .
+RUN npm install
+COPY src src
+COPY public public
+
+CMD npm run dev
