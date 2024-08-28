@@ -42,7 +42,7 @@ jobs:
             backend:
               - 'backend/**'
 
-      - name: Check lint and Run unit tests
+      - name: Run unit tests
         if: ${{ steps.filter.outputs[matrix.service] == 'true' }}
         run: |
           cd ${{ matrix.service }}
