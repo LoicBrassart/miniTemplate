@@ -1,8 +1,8 @@
+import type { Request, Response } from "express";
+import type { User } from "../entities/User";
+
 export default interface MyContext {
-  user?: {
-    id: string;
-    name: string;
-    mail: string;
-    roles: string[];
-  };
+  req: Request;
+  res: Response;
+  user?: User;
 }
