@@ -55,4 +55,3 @@ jobs:
         run: |
           docker compose -f compose.e2e.yaml up --abort-on-container-failure
           docker compose -f compose.e2e.yaml down
-        with:
