@@ -65,7 +65,7 @@ services:
     volumes:
       - ./frontend/src:/app/src/
     environment:
-      VITE_API_URL: http://localhost:${GATEWAY_PORT}/api
+      VITE_API_URL: http://e2e-gateway/api
 
   e2e-codegen:
     <<: *baseService
@@ -96,4 +96,5 @@ services:
       e2e-gateway:
         condition: service_started
     environment:
-      WEBSITE_URL: http://e2e-frontend:5173
+      WEBSITE_URL: http://e2e-gateway
+      VITE_API_URL: http://e2e-gateway/api
