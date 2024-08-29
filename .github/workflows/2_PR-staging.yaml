@@ -35,6 +35,7 @@ jobs:
   test-e2e:
     runs-on: ubuntu-latest
     needs: test-services
+    environment: e2e
     env:
       GATEWAY_PORT: ${{ secrets.GATEWAY_PORT }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
