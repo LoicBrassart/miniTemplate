@@ -5,4 +5,3 @@ export default interface MyContext {
   req: Request;
   res: Response;
   user?: User;
-}
