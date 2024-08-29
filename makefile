@@ -13,4 +13,4 @@ dev:
 	docker compose --env-file .env.dev -f compose.dev.yaml up --build -d
 
 e2e: 
-	docker compose --env-file .env.dev -f compose.e2e.yaml up --abort-on-container-failure --exit-code-from e2e-tests
+	docker compose --env-file .env.e2e -f compose.e2e.yaml run e2e-tests
