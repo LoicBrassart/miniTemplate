@@ -11,7 +11,8 @@ jobs:
     environment: Staging
     strategy:
       matrix:
-        service: # Add services here
+        # Add services here
+        service: 
           - frontend
           - backend
 
