@@ -47,7 +47,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile.dev
     healthcheck: 
-      test: ["CMD-SHELL", "curl --fail --request POST --header 'Content-Type: application/json' --url 'http://localhost:4000' --data '{\"query\":\"query { __typename }\"}' || exit 1"]
+      test: ["CMD-SHELL", "curl --fail --request POST --header 'Content-Type: application/json' --url 'http://dev-backend:4000' --data '{\"query\":\"query { __typename }\"}' || exit 1"]
     depends_on:
       dev-db:
         condition: service_healthy
@@ -67,14 +67,14 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.dev
     healthcheck: 
-      test: ["CMD-SHELL", "curl --fail --request GET --url 'http://localhost:5173' || exit 1"]
+      test: ["CMD-SHELL", "curl --fail --request GET --url 'http://dev-frontend:5173' || exit 1"]
     depends_on:
       dev-codegen:
         condition: service_completed_successfully
     volumes:
       - ./frontend/src:/app/src/
     environment:
-      VITE_API_URL: http://localhost:${GATEWAY_PORT}/api
+      VITE_API_URL: http://dev-gateway:${GATEWAY_PORT}/api
 
   dev-codegen:
     <<: *baseService
@@ -82,8 +82,6 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile.dev
-    healthcheck: 
-      test: ["CMD-SHELL", "curl --fail --request GET --url 'http://localhost:5173' || exit 1"]
     depends_on:
       dev-backend:
         condition: service_healthy
