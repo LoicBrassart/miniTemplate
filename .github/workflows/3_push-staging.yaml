@@ -3,7 +3,7 @@ name: Compile Code & Send Images to DockerHub
 on:
   push:
     branches: 
-      - staging
+      - production
 
 jobs:
   build-and-push:
