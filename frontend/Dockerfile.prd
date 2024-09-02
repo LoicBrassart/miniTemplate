@@ -6,7 +6,7 @@ COPY *.ts .
 RUN npm install
 RUN npm install -g typescript
 COPY src/ .
-RUN tsc --build --verbose
+RUN tsc
 
 FROM node:lts-alpine
 RUN apk --no-cache add curl
