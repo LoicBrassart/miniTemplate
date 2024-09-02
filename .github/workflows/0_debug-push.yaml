@@ -1,9 +1,6 @@
 name: Compile Code & Send Images to DockerHub
 
-on:
-  push:
-    branches: 
-      - *
+on: push
 
 jobs:
   build-and-push:
