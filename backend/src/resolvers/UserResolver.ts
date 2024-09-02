@@ -1,4 +1,4 @@
-import type MyContext from "@/types/myContext";
+import type MyContext from "../types/myContext";
 import * as argon2 from "argon2";
 import * as dotenv from "dotenv";
 import * as jwt from "jsonwebtoken";
