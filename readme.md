@@ -73,4 +73,3 @@ To install an app named APPNAME:
   - [x] Enable SSL
   - [x] Just the Push event (unless our project needs something else, obviously)
   - [x] Active
-
