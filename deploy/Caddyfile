@@ -1,0 +1,32 @@
+# This block allows the Webhook server to listen all calls from GHub and redirects them to your scripts
+ops.DOMAIN {
+        reverse_proxy localhost:9000
+}
+
+# Every app on your vps should have these blocks:
+# dev.DOMAIN {
+#         reverse_proxy localhost:8001
+# }
+# staging.DOMAIN {
+#         reverse_proxy localhost:8002
+# }
+# DOMAIN {
+#         reverse_proxy localhost:8003
+# }
+# Copy/paste them and edit:
+# - DOMAIN: the domain which redirects to your server
+# - APPNAME: the app's name. If there is only one app on your server, you can leave it blank
+# - ports numbers (8001,8002,8003): these numbers *must* be unique across your server
+
+dev.APPNAME.DOMAIN {
+        reverse_proxy localhost:8001
+}
+staging.APPNAME.DOMAIN {
+        reverse_proxy localhost:8002
+}
+APPNAME.DOMAIN {
+        reverse_proxy localhost:8003
+}
+
+# Refer to the Caddy docs for more information:
+# https://caddyserver.com/docs/caddyfile

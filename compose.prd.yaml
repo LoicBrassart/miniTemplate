@@ -37,22 +37,15 @@ services:
   prd-backend:
     <<: *baseService
     image: ${DOCKER_HUB_USERNAME}/${APP_NAME}-backend
+    command: sh -c "npm run start"
     healthcheck: 
       test: ["CMD-SHELL", "curl --fail --request POST --header 'Content-Type: application/json' --url 'http://prd-backend:4000' --data '{\"query\":\"query { __typename }\"}' || exit 1"]
     depends_on:
       prd-db:
         condition: service_healthy
-    volumes:
-      - ./backend/src:/app/src/
     environment:
       NODE_ENV: production
       SERVER_PORT: 4000
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_DATABASE: ${DB_DATABASE}
-      DB_USER: ${DB_USER}
-      DB_HOST: ${DB_HOST}
-      JWT_SECRET: ${JWT_SECRET}
-      COOKIE_TTL: ${COOKIE_TTL}
 
   prd-frontend:
     <<: *baseService
