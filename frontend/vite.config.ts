@@ -11,7 +11,7 @@ const config: UserConfig = {
       usePolling: true,
     },
     hmr: {
-      port: 8000,
+      port: 7000,
     },
   },
   build: {
